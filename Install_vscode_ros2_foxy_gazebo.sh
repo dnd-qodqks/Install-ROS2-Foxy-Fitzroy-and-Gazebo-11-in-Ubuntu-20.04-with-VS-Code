@@ -5,7 +5,7 @@ set -x
 
 echo "[Install VS Code]"
 sudo apt update && sudo apt install -y locales
-sudo apt install software-properties-common apt-transport-https wget
+sudo apt install -y software-properties-common apt-transport-https wget
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update
@@ -29,7 +29,7 @@ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 echo "[Setup Sources]"
-sudo apt install software-properties-common
+sudo apt install -y software-properties-common
 sudo add-apt-repository universe
 
 sudo apt update && sudo apt install curl
@@ -39,7 +39,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 echo "[Installing ROS2 Foxy]"
 sudo apt update
-sudo apt install ros-$name_ros2_distro-desktop python3-argcomplete
+sudo apt install -y ros-$name_ros2_distro-desktop python3-argcomplete
 
 # Delete Cache
 sudo rm /var/lib/apt/lists/lock
