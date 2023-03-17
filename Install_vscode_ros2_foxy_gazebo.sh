@@ -20,7 +20,6 @@ sudo apt update
 
 name_ws="catkin_ws"
 name_ros2_distro="foxy"
-version=`lsb_release -sc`
 
 echo "[Setup Locales(UTF-8)]"
 sudo apt update
