@@ -4,7 +4,7 @@
 set -x
 
 echo "[Install VS Code]"
-sudo apt update
+sudo apt update && sudo apt install -y locales
 sudo apt install software-properties-common apt-transport-https wget
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
@@ -23,7 +23,7 @@ name_ros2_distro="foxy"
 version=`lsb_release -sc`
 
 echo "[Setup Locales(UTF-8)]"
-sudo apt update && sudo apt install -y locales
+sudo apt update
 
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
