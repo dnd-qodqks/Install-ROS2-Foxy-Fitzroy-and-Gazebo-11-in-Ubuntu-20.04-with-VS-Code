@@ -18,12 +18,12 @@ sudo rm /var/lib/dpkg/lcok*
 sudo dpkg --configure -a
 sudo apt update
 
-name_ws="catkin_ws"
+name_ws="ros2_ws"
 name_ros2_distro="foxy"
 
 echo "[Setup Locales(UTF-8)]"
 sudo apt update
-
+sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -39,7 +39,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 echo "[Installing ROS2 Foxy]"
 sudo apt update
-sudo apt install -y ros-$name_ros2_distro-desktop python3-argcomplete
+sudo apt install -y ros-${name_ros2_distro}-desktop python3-argcomplete
 
 # Delete Cache
 sudo rm /var/lib/apt/lists/lock
@@ -89,7 +89,7 @@ cd ~/$name_ws/
 colcon build --symlink-install
 
 echo "[Setting the ROS evironment]"
-sh -c "echo \"alias rosfoxy='source /opt/ros/${name_ros2_distro}/setup.bash; source ~/${name_ws}/install/local_setup.bash; echo Activate foxy!'\" >> ~/.bashrc"
+sh -c "echo \"alias rf='source /opt/ros/${name_ros2_distro}/setup.bash; source ~/${name_ws}/install/local_setup.bash; echo Activate foxy!'\" >> ~/.bashrc"
 
 # sh -c "echo \"source /opt/ros/${name_ros2_distro}/setup.bash\" >> ~/.bashrc"
 # sh -c "echo \"source ~/${name_ws}/install/local_setup.bash\" >> ~/.bashrc"
