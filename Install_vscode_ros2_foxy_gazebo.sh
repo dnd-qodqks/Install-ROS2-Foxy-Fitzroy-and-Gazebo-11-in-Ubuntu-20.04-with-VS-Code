@@ -83,9 +83,9 @@ libtinyxml2-dev \
 libcunit1-dev
 
 echo "[Making the catkin workspace and testing the catkin_make]"
-source /opt/ros/$name_ros2_distro/setup.bash
-mkdir -p ~/$name_ws/src
-cd ~/$name_ws/
+source /opt/ros/${name_ros2_distro}/setup.bash
+mkdir -p ~/${name_ws}/src
+cd ~/${name_ws}/
 colcon build --symlink-install
 
 echo "[Setting the ROS evironment]"
